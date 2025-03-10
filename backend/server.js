@@ -3,7 +3,7 @@ import express from 'express'
 import dotenv from 'dotenv'
 dotenv.config()
 import products from './data/products.js'
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5173;
 
 
 const app = express();
