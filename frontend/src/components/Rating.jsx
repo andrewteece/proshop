@@ -1,6 +1,6 @@
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa'
 
-const rating = ({ value, text }) => {
+const Rating = ({ value, text }) => {
   return (
     <div className='rating'>
       <span>
@@ -13,9 +13,13 @@ const rating = ({ value, text }) => {
         )}
       </span>
       <span>
-        {(value) =>
-          2 ? <FaStar /> : value >= 1.5 ? <FaStarHalfAlt /> : <FaRegStar />
-        }
+        {value >= 2 ? (
+          <FaStar />
+        ) : value >= 1.5 ? (
+          <FaStarHalfAlt />
+        ) : (
+          <FaRegStar />
+        )}
       </span>
       <span>
         {value >= 3 ? (
@@ -49,4 +53,4 @@ const rating = ({ value, text }) => {
   )
 }
 
-export default rating
+export default Rating
