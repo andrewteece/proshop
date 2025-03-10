@@ -1,0 +1,23 @@
+{
+  "name": "proshop",
+  "version": "2.0.0",
+  "description": "eCommerce app built with MERN stack",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewteece/proshop.git"
+  },
+  "author": "Andrew Teece",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewteece/proshop/issues"
+  },
+  "homepage": "https://github.com/andrewteece/proshop#readme",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
