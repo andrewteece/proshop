@@ -11,5 +11,11 @@ export default defineConfig({
       include: ['./src/**/*.js', './src/**/*.jsx'],
       exclude: [],
     })
-  ]
+  ],
+  server: {
+    proxy: {
+      '/api': 'http://localhost:3000',
+      '/uploads': 'http://localhost:3000',
+    },
+  }
 })

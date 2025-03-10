@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from 'react-bootstrap'
 import { FaShoppingCart, FaUser } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { LinkContainer } from 'react-router-bootstrap'
+
 import logo from '../assets/logo.png'
 
 const Header = () => {
