@@ -1,8 +1,9 @@
-import express from 'express'
+import express from 'express';
 const router = express.Router();
-//import products from '../data/products';
+
 import asyncHandler from '../middleware/asyncHandler.js'
 import Product from '../models/productModel.js'
+import products from '../data/products.js';
 
 router.get('/', (req, res) => {
     res.json(products);
