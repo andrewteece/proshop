@@ -3,16 +3,16 @@ const router = express.Router();
 
 import asyncHandler from '../middleware/asyncHandler.js'
 import Product from '../models/productModel.js'
-import products from '../data/products.js';
+//import products from '../data/products.js';
 
-router.get('/', (req, res) => {
-    res.json(products);
-  });
+// router.get('/', (req, res) => {
+//     res.json(products);
+//   });
   
-  router.get('/:id', (req, res) => {
-    const product = products.find((p) => p._id === req.params.id);
-    res.json(product);
-  });
+//   router.get('/:id', (req, res) => {
+//     const product = products.find((p) => p._id === req.params.id);
+//     res.json(product);
+//   });
 
   router.get(
     '/',
