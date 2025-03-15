@@ -2,7 +2,7 @@
 //import axios from 'axios'
 import { Row, Col } from 'react-bootstrap'
 import Product from '../components/Product'
-import { useGetProductsQuery } from '../slices/productApiSlice.js'
+import { useGetProductsQuery } from '../slices/productsApiSlice.js'
 //import products from '../products'
 
 const HomeScreen = () => {
