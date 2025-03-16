@@ -1,24 +1,12 @@
-import { Navbar, Nav, Container } from 'react-bootstrap'
-import { FaShoppingCart, FaUser } from 'react-icons/fa'
-import { Link } from 'react-router-dom'
+import { Navbar, Nav, Container, Badge } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
+import { FaShoppingCart, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.png';
 
 const Header = () => {
-  //   const navigate = useNavigate()
-
-  //   // const logoutHandler = async () => {
-  //   //   try {
-  //   //     await logoutApiCall().unwrap()
-  //   //     dispatchEvent(logout())
-  //   //     // NOTE: here we need to reset cart state for when a user logs out so the next
-  //   //     // user doesn't inherit the previous users cart and shipping
-  //   //     dispatchEvent(resetCart())
-  //   //     navigate('/login')
-  //   //   } catch (err) {
-  //   //     console.error(err)
-  //   //   }
-  //   // }
+  const { cartItems } = useSelector((state) => state.cart);
 
   return (
     <header>
@@ -34,6 +22,11 @@ const Header = () => {
             <Nav className='ms-auto'>
               <Nav.Link as={Link} to='/cart'>
                 <FaShoppingCart /> Cart
+                {cartItems.length > 0 && (
+                  <Badge pill bg='success' style={{ marginLeft: '5px' }}>
+                    {cartItems.reduce((a, c) => a + c.qty, 0)}
+                  </Badge>
+                )}
               </Nav.Link>
 
               <Nav.Link as={Link} to='/login'>
@@ -44,7 +37,7 @@ const Header = () => {
         </Container>
       </Navbar>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
