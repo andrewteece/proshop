@@ -30,10 +30,17 @@ const cartSlice = createSlice({
             // update the prices and save to storage
             return updateCart(state, item);
             
-        }
+        },
+          removeFromCart: (state, action) => {
+            // filter out the item to removew from the card
+            state.cartItems = state.cartItems.filter((x) => x._id !== action.payload);
+
+            // update the prices and save to storage
+            return updateCart(state);
+          }  
     }
 })
 
-export const { addToCart } = cartSlice.actions;
+export const { addToCart, removeFromCart } = cartSlice.actions;
 
 export default cartSlice.reducer;
