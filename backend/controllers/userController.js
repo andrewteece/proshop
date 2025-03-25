@@ -46,7 +46,11 @@ const authUser = asyncHandler(async (req, res) => {
   // @route   POST /api/users/logout
   // @access  Public
   const logoutUser = (req, res) => {
-    res.send('logout user');
+    res.cookie('jwt', '', {
+      httpOnly: true,
+      expires: new Date(0),
+    });
+    res.status(200).json({ message: 'Logged out succesfully'});
   };
   
   // @desc    Get user profile

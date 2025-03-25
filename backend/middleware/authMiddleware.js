@@ -2,28 +2,29 @@ import jwt from "jsonwebtoken";
 import asyncHandler from "./asyncHandler.js";
 import User from "../models/userModel.js";
 
-const protect = asyncHandler(async (req, resizeBy, next) => {
+const protect = asyncHandler(async (req, res, next) => {
     let token;
-
-    // read jwt from the 'jwt' cookie
-
+  
+    // Read JWT from the 'jwt' cookie
+    token = req.cookies.jwt;
+  
     if (token) {
-        try {
-            const decoded = jwt.verify(token, process.env.JWT_SECRET);
-
-            req.user = await User.findById(decoded.userId).select('-password');
-
-            next();
-        } catch (error) {
-            console.error(error);
-            resizeBy.status(401);
-            throw new Error('Not authorized, token failed')
-        }
+      try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  
+        req.user = await User.findById(decoded.userId).select('-password');
+  
+        next();
+      } catch (error) {
+        console.error(error);
+        res.status(401);
+        throw new Error('Not authorized, token failed');
+      }
     } else {
-        resizeBy.status(401);
-        throw new Error('Not authorized, no token')
+      res.status(401);
+      throw new Error('Not authorized, no token');
     }
-});
+  });
 
 // admin middleware
 
