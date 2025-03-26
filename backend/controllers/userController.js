@@ -61,7 +61,7 @@ const authUser = asyncHandler(async (req, res) => {
 
     if (user) {
       generateToken(res, user._id);
-      
+
       res.status(201).json({
         _id: user._id,
         name: user.name,
@@ -89,7 +89,19 @@ const authUser = asyncHandler(async (req, res) => {
   // @route   GET /api/users/profile
   // @access  Private
   const getUserProfile = asyncHandler(async (req, res) => {
-    res.send('get user profile');
+    const user = await User.findById(req.user._id);
+
+    if (user) {
+      res.json({
+        _id: user._id,
+        name: user.name,
+        email: user.email,
+        isAdmin: user.isAdmin,
+      })
+    } else {
+      res.status(404);
+      throw new Error('User not found');
+    }
   });
   
   // @desc    Update user profile
