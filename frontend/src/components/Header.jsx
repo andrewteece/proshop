@@ -1,5 +1,8 @@
+import { useNavigate } from 'react-router-dom';
 import { Navbar, Nav, Container, Badge, NavDropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { useLogoutMutation } from '../slices/usersApiSlice.js';
+import { logout } from '../slices/authSlice.js';
 import { FaShoppingCart, FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
