@@ -9,6 +9,7 @@ import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
+import orderRoutes from './routes/orderRoutes.js';
 const port = process.env.PORT || 3000;
 
 connectDB(); // connect to MongoDB
@@ -41,4 +42,7 @@ app.get('/api/products/:id', (req, res) => {
     res.json(product);
   });
 
+  app.use('/api/orders', orderRoutes);
+
 app.listen(port, () => console.log(`Server running on port ${port}`))
+
