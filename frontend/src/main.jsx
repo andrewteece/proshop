@@ -13,11 +13,11 @@ import {
 import { Provider } from 'react-redux';
 import store from './store.js';
 import HomeScreen from './screens/HomeScreen';
-import ProductScreen from './screens/ProductScreen.jsx';
-import CartScreen from './screens/CartScreen.jsx';
-import LoginScreen from './screens/LoginScreen.jsx';
-import RegisterScreen from './screens/REgisterScreen.jsx';
-import ShippingScreen from './screens/ShippingScreen.jsx';
+import ProductScreen from './screens/ProductScreen';
+import CartScreen from './screens/CartScreen';
+import LoginScreen from './screens/LoginScreen';
+import RegisterScreen from './screens/REgisterScreen';
+import ShippingScreen from './screens/ShippingScreen';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
