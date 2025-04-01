@@ -10,7 +10,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 import productRoutes from './routes/productRoutes.js'
 import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js';
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 connectDB(); // connect to MongoDB
 
@@ -25,6 +25,7 @@ app.use(cookieParser());
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/orders', orderRoutes);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
@@ -42,7 +43,7 @@ app.get('/api/products/:id', (req, res) => {
     res.json(product);
   });
 
-  app.use('/api/orders', orderRoutes);
+
 
 app.listen(port, () => console.log(`Server running on port ${port}`))
 
